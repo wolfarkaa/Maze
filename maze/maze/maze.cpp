@@ -7,11 +7,11 @@
 
 using namespace std;
 
-// Размеры лабиринта (должны быть нечетными числами для удобства)
+// Maze dimensions (should be odd numbers for convenience)
 const int WIDTH = 15;
 const int HEIGHT = 15;
 
-// Символы для отображения лабиринта
+// Symbols for displaying the maze
 const char WALL = '#';
 const char ROAD = ' ';
 const char ENTRANCE = 'E';
@@ -19,7 +19,7 @@ const char EXIT = 'X';
 const char TRAP = 'T';
 const char TREASURE = '$';
 
-// Структура клетки лабиринта
+// Structure of a maze cell
 struct Cell {
     bool visited;
     bool road;
@@ -29,39 +29,39 @@ struct Cell {
     Cell() : visited(false), road(false), hasTrap(false), hasTreasure(false) {}
 };
 
-// Двумерный массив для лабиринта
+// 2D array for the maze
 vector<vector<Cell>> maze(HEIGHT, vector<Cell>(WIDTH));
 
-// Счетчик ловушек и сокровищ
+// Counters for traps and treasures
 int trapCounter = 0;
 int treasureCounter = 0;
 
-// Функция для отображения лабиринта в консоли
+// Function to display the maze on the console
 void displayMaze() {
     for (int i = 0; i < HEIGHT; ++i) {
         for (int j = 0; j < WIDTH; ++j) {
             if (i == 0 || i == HEIGHT - 1 || j == 0 || j == WIDTH - 1) {
-                // Границы лабиринта
+                // Maze boundaries
                 cout << WALL;
             }
             else if (i == 1 && j == 1) {
-                // Начальная точка
+                // Entrance point
                 cout << ENTRANCE;
             }
             else if (i == HEIGHT - 2 && j == WIDTH - 2) {
-                // Конечная точка
+                // Exit point
                 cout << EXIT;
             }
             else if (maze[i][j].hasTrap) {
-                // Ловушка
+                // Trap
                 cout << TRAP;
             }
             else if (maze[i][j].hasTreasure) {
-                // Сокровище
+                // Treasure
                 cout << TREASURE;
             }
             else {
-                // Внутренние клетки лабиринта
+                // Inner maze cells
                 cout << (maze[i][j].road ? ROAD : WALL);
             }
         }
@@ -69,17 +69,17 @@ void displayMaze() {
     }
 }
 
-// Функция для проверки доступности клетки
+// Function to check if a cell is valid
 bool isValid(int x, int y) {
     return (x >= 0 && x < HEIGHT && y >= 0 && y < WIDTH && !maze[x][y].visited);
 }
 
-// Алгоритм Эйлера для генерации лабиринта
+// Euler's algorithm for maze generation
 void generateMaze(int x, int y) {
     maze[x][y].visited = true;
     maze[x][y].road = true;
 
-    // Список соседей в случайном порядке
+    // List of neighbors in random order
     vector<pair<int, int>> neighbors = { {x - 2, y}, {x + 2, y}, {x, y - 2}, {x, y + 2} };
     random_shuffle(neighbors.begin(), neighbors.end());
 
@@ -95,12 +95,12 @@ void generateMaze(int x, int y) {
     }
 }
 
-// Структура для хранения состояния клетки и количества ловушек на пути
+// Structure to store cell state and trap count on the path
 struct PathState {
     int x, y, traps;
 };
 
-// Функция для поиска всех путей от входа до выхода с подсчетом ловушек
+// Function to find all paths from entrance to exit with trap counting
 bool findPath() {
     vector<vector<int>> trapCount(HEIGHT, vector<int>(WIDTH, INT_MAX));
     queue<PathState> q;
@@ -132,10 +132,10 @@ bool findPath() {
     return false;
 }
 
-// Функция для добавления ловушек на путь от начала до конца
+// Function to add traps on the path from entrance to exit
 void addTraps() {
     while (true) {
-        // Очищаем ловушки
+        // Clear traps
         for (int i = 1; i < HEIGHT - 1; ++i) {
             for (int j = 1; j < WIDTH - 1; ++j) {
                 maze[i][j].hasTrap = false;
@@ -143,7 +143,7 @@ void addTraps() {
         }
         trapCounter = 0;
 
-        // Создаем список всех проходимых клеток в лабиринте
+        // Create a list of all road cells in the maze
         vector<pair<int, int>> roadCells;
         for (int i = 1; i < HEIGHT - 1; ++i) {
             for (int j = 1; j < WIDTH - 1; ++j) {
@@ -153,34 +153,34 @@ void addTraps() {
             }
         }
 
-        // Перемешиваем список клеток
+        // Shuffle the list of cells
         random_shuffle(roadCells.begin(), roadCells.end());
 
-        // Генерируем случайное количество ловушек от 0 до 5
+        // Generate a random number of traps from 0 to 5
         int numTraps = rand() % 6;
-        numTraps = min(numTraps, static_cast<int>(roadCells.size())); // Ограничиваем количество ловушек до размера доступных клеток
+        numTraps = min(numTraps, static_cast<int>(roadCells.size())); // Limit traps to the number of available cells
 
         for (int i = 0; i < numTraps; ++i) {
             int x = roadCells[i].first;
             int y = roadCells[i].second;
 
-            // Помещаем ловушку в клетку, если там еще нет ловушки
+            // Place a trap in the cell if it doesn't already have one
             if (!maze[x][y].hasTrap) {
                 maze[x][y].hasTrap = true;
                 trapCounter++;
             }
         }
 
-        // Проверяем, есть ли хотя бы один безопасный путь
+        // Check if there is at least one safe path
         if (findPath()) {
             break;
         }
     }
 }
 
-// Функция для добавления сокровищ на путь от начала до конца
+// Function to add treasures on the path from entrance to exit
 void addTreasures() {
-    // Создаем список всех проходимых клеток в лабиринте
+    // Create a list of all road cells in the maze
     vector<pair<int, int>> roadCells;
     for (int i = 1; i < HEIGHT - 1; ++i) {
         for (int j = 1; j < WIDTH - 1; ++j) {
@@ -190,17 +190,17 @@ void addTreasures() {
         }
     }
 
-    // Перемешиваем список клеток
+    // Shuffle the list of cells
     random_shuffle(roadCells.begin(), roadCells.end());
 
-    // Генерируем случайное количество сокровищ от 0 до 1
+    // Generate a random number of treasures from 0 to 1
     int numTreasures = rand() % 2;
 
     for (int i = 0; i < numTreasures && i < roadCells.size(); ++i) {
         int x = roadCells[i].first;
         int y = roadCells[i].second;
 
-        // Помещаем сокровище в клетку, если там еще нет сокровища
+        // Place a treasure in the cell if it doesn't already have one
         if (!maze[x][y].hasTreasure) {
             maze[x][y].hasTreasure = true;
             treasureCounter++;
@@ -209,22 +209,22 @@ void addTreasures() {
 }
 
 int main() {
-    // Инициализация генератора случайных чисел
+    // Initialize the random number generator
     srand(time(0));
 
-    // Генерация лабиринта
+    // Generate the maze
     generateMaze(1, 1);
 
-    // Добавление ловушек
+    // Add traps
     addTraps();
 
-    // Добавление сокровищ
+    // Add treasures
     addTreasures();
 
-    // Отображаем лабиринт в консоли
+    // Display the maze on the console
     displayMaze();
 
-    // Выводим количество ловушек и сокровищ
+    // Output the number of traps and treasures
     cout << "Number of traps: " << trapCounter << endl;
     cout << "Number of treasures: " << treasureCounter << endl;
 

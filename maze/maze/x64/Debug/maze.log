@@ -1,3 +1,3 @@
 ﻿  maze.cpp
-C:\Users\kotsu\OneDrive\Desktop\maze\maze\maze.cpp(213,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  maze.vcxproj -> C:\Users\kotsu\OneDrive\Desktop\maze\x64\Debug\maze.exe
+C:\Users\kotsu\OneDrive\Документы\GitHub\Maze\maze\maze\maze.cpp(213,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  maze.vcxproj -> C:\Users\kotsu\OneDrive\Документы\GitHub\Maze\maze\x64\Debug\maze.exe

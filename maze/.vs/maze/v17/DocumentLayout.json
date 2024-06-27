@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kotsu\\OneDrive\\Desktop\\maze\\",
+  "WorkspaceRootPath": "C:\\Users\\kotsu\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\Maze\\maze\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B2987DE8-E336-4BCF-9C3C-CDB9B2240D23}|maze\\maze.vcxproj|C:\\Users\\kotsu\\OneDrive\\Desktop\\maze\\maze\\maze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{B2987DE8-E336-4BCF-9C3C-CDB9B2240D23}|maze\\maze.vcxproj|C:\\Users\\kotsu\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\Maze\\maze\\maze\\maze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B2987DE8-E336-4BCF-9C3C-CDB9B2240D23}|maze\\maze.vcxproj|solutionrelative:maze\\maze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "maze.cpp",
-              "DocumentMoniker": "C:\\Users\\kotsu\\OneDrive\\Desktop\\maze\\maze\\maze.cpp",
+              "DocumentMoniker": "C:\\Users\\kotsu\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\Maze\\maze\\maze\\maze.cpp",
               "RelativeDocumentMoniker": "maze\\maze.cpp",
-              "ToolTip": "C:\\Users\\kotsu\\OneDrive\\Desktop\\maze\\maze\\maze.cpp",
+              "ToolTip": "C:\\Users\\kotsu\\OneDrive\\\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B\\GitHub\\Maze\\maze\\maze\\maze.cpp",
               "RelativeToolTip": "maze\\maze.cpp",
-              "ViewState": "AQIAAJsAAAAAAAAAAAAqwN4AAAAAAAAA",
+              "ViewState": "AQIAANMAAAAAAAAAAAAqwOgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-26T15:05:38.818Z",
               "EditorCaption": ""
