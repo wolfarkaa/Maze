@@ -1,4 +1,5 @@
 # Maze Generator Program for Distributed Lab
+[![Logo](https://github.com/wolfarkaa/maze/blob/main/img/logo.png)]
 ## Description
 ### Overview
 This program generates a maze with specific features such as an entrance, exit, traps, and treasures. It ensures there is at least one valid path from the entrance to the exit while limiting the number of traps encountered along the way.
