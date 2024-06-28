@@ -21,7 +21,7 @@ Treasure Placement: Adds treasures ($) on available road cells, enhancing gamepl
 Display: Prints the maze to the console with graphical symbols for walls, roads, entrance, exit, traps, and treasures.
 Statistics: Outputs the total number of traps and treasures generated in the maze.
 
-![Preview](https://github.com/wolfarkaa/maze/blob/main/img/preview.png)
+![Preview](https://github.com/wolfarkaa/maze/blob/main/img/preview.jpg)
 
 ### How to run code
 
