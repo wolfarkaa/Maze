@@ -1,5 +1,5 @@
 # Maze Generator Program for Distributed Lab
-[![Logo](https://github.com/wolfarkaa/maze/blob/main/img/logo.png)]
+![Logo](https://github.com/wolfarkaa/maze/blob/main/img/logo.png)
 ## Description
 ### Overview
 This program generates a maze with specific features such as an entrance, exit, traps, and treasures. It ensures there is at least one valid path from the entrance to the exit while limiting the number of traps encountered along the way.
@@ -20,6 +20,8 @@ Treasure Placement: Adds treasures ($) on available road cells, enhancing gamepl
 #### Output:
 Display: Prints the maze to the console with graphical symbols for walls, roads, entrance, exit, traps, and treasures.
 Statistics: Outputs the total number of traps and treasures generated in the maze.
+
+![Preview](https://github.com/wolfarkaa/maze/blob/main/img/preview.png)
 
 ### How to run code
 
